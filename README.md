@@ -1,5 +1,15 @@
 # REST API TDD
 
+# Extensiones de PHP
+    Habilitar la extensión zip: 
+    busca en tu archivo php.ini la línea que dice 
+    ;extension=zip elimine el punto y coma (;) 
+    al inicio de la línea para descomentarla:
+    
+    extension=zip
+
+    Reiniciar el servidor web: Después de modificar el archivo php.ini
+
 # Instalación de Dependencias
 
 # Composer
@@ -15,9 +25,9 @@
         DB_CONNECTION=mysql
         DB_HOST=127.0.0.1
         DB_PORT=3306
-        DB_DATABASE=TDD
-        DB_USERNAME=usuario_bd
-        DB_PASSWORD=contraseña_bd
+        DB_DATABASE=laravel
+        DB_USERNAME=laravel
+        DB_PASSWORD=laravel
 
 # Generar una Clave de Aplicación
 
