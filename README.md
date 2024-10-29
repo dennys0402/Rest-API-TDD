@@ -1,45 +1,63 @@
-# REST API TDD
+# Guía de Instalación del Proyecto
 
-# Extensiones de PHP
-    Habilitar la extensión zip: 
-    busca en tu archivo php.ini la línea que dice 
-    ;extension=zip elimine el punto y coma (;) 
-    al inicio de la línea para descomentarla:
-    
-    extension=zip
+## Requisitos de Servidor
 
-    Reiniciar el servidor web: Después de modificar el archivo php.ini
+Para ejecutar Laravel 10 sin problemas, asegúrate de que tu servidor cumpla con los siguientes requisitos:
 
-# Instalación de Dependencias
+- **PHP**: Versión 8.1 o superior
+- **Servidor Web**: Apache
+- **Composer**: Versión 2.7.9 o superior
 
-# Composer
+## Instalación de Dependencias
 
-1.- Para instalar las dependencias de PHP, ejecuta el siguiente comando:
+1. Para instalar las dependencias de PHP, ejecuta el siguiente comando:
+
+    ```bash
     composer install
+    ```
 
-2.- Configuración del Archivo de Entorno
-    Renombra el archivo .env.example a .env:
+## Configuración del Archivo de Entorno
+
+2. Renombra el archivo `.env.example` a `.env`:
+
+    ```bash
     cp .env.example .env
+    ```
 
-    -Luego, abre el archivo .env y actualiza las variables de entorno, especialmente la configuración de la base de datos:
-        DB_CONNECTION=mysql
-        DB_HOST=127.0.0.1
-        DB_PORT=3306
-        DB_DATABASE=laravel
-        DB_USERNAME=laravel
-        DB_PASSWORD=laravel
+3. Luego, abre el archivo `.env` y actualiza las variables de entorno, especialmente la configuración de la base de datos:
 
-# Generar una Clave de Aplicación
+    ```plaintext
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=laravel
+    DB_USERNAME=tu_usuario
+    DB_PASSWORD=tu_contraseña
+    ```
 
-3.- Para generar una clave de aplicación, ejecuta el siguiente comando:
+## Generar una Clave de Aplicación
+
+4. Para generar una clave de aplicación, ejecuta el siguiente comando:
+
+    ```bash
     php artisan key:generate
+    ```
 
-# Creacion de la Base de Datos
+## Creación de la Base de Datos
 
-4.- Para crear la base de datos, ejecuta el siguiente comando:
+5. Para crear la base de datos con datos iniciales, ejecuta el siguiente comando:
+
+    ```bash
     php artisan migrate --seed
+    ```
 
-# Correr los test
+## Ejecutar Pruebas
 
-5.- Para correr los test, ejecuta el siguiente comando:
+6. Para correr los tests, utiliza el siguiente comando:
+
+    ```bash
     php artisan test
+    ```
+
+
+
