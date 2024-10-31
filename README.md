@@ -61,10 +61,3 @@ Para ejecutar Laravel 10 sin problemas, asegúrate de que tu servidor cumpla con
     ```bash
     php artisan test
     ```
-
-
- extencione a habilitar en php.ini
-    extension=zip
-
-extension=fileinfo
-

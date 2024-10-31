@@ -11,6 +11,7 @@ pipeline {
         string(name: 'DB_DATABASE', defaultValue: 'laravel', description: 'Nombre de la base de datos')
         string(name: 'DB_USERNAME', defaultValue: 'root', description: 'Usuario de la base de datos')
         string(name: 'DB_PASSWORD', defaultValue: '', description: 'Contraseña de la base de datos')
+        string(name: 'XAMPP_PATH', defaultValue: 'C:/xampp/htdocs', description: 'Ruta de XAMPP htdocs')
     }
 
     environment {
@@ -44,7 +45,7 @@ pipeline {
                     bat """
                     echo APP_NAME=Laravel > .env
                     echo APP_ENV=local >> .env
-                    echo APP_KEY= >> .env 
+                    echo APP_KEY= >> .env
                     echo APP_DEBUG=true >> .env
                     echo APP_URL=http://localhost >> .env
                     echo DB_CONNECTION=mysql >> .env
@@ -63,10 +64,18 @@ pipeline {
 
         stage('Run Migrations') {
             steps {
-                script {
-                    // Ejecutar migraciones y seeders
-                    bat "${PHP_PATH} artisan migrate --seed --force"
-                }
+                bat "${PHP_PATH} artisan migrate --seed --force"
+            }
+        }
+
+        stage('Deploy to XAMPP') {
+            steps {
+                // Limpia el directorio de destino
+                bat "if exist \"${params.XAMPP_PATH}\\laravel-app\" rmdir /S /Q \"${params.XAMPP_PATH}\\laravel-app\""
+                
+                // Crea el directorio de destino y copia los archivos
+                bat "mkdir \"${params.XAMPP_PATH}\\laravel-app\""
+                bat "xcopy /E /I /Y * \"${params.XAMPP_PATH}\\laravel-app\""
             }
         }
     }
