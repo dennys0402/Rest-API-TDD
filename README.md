@@ -7,6 +7,9 @@ Para ejecutar Laravel 10 sin problemas, asegúrate de que tu servidor cumpla con
 - **PHP**: Versión 8.1 o superior
 - **Servidor Web**: Apache
 - **Composer**: Versión 2.7.9 o superior
+- **Extensiones de PHP necesarias**:
+  - `extension=zip`
+  - `extension=fileinfo`
 
 ## Instalación de Dependencias
 
@@ -60,4 +63,8 @@ Para ejecutar Laravel 10 sin problemas, asegúrate de que tu servidor cumpla con
     ```
 
 
+ extencione a habilitar en php.ini
+    extension=zip
+
+extension=fileinfo
 
