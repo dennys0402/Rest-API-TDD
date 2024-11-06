@@ -11,7 +11,7 @@ pipeline {
         string(name: 'DB_DATABASE', defaultValue: 'laravel', description: 'Nombre de la base de datos')
         string(name: 'DB_USERNAME', defaultValue: 'root', description: 'Usuario de la base de datos')
         string(name: 'DB_PASSWORD', defaultValue: '', description: 'Contraseña de la base de datos')
-        string(name: 'XAMPP_PATH', defaultValue: 'C:/xampp/htdocs', description: 'Ruta de XAMPP htdocs')
+        string(name: 'APACHE_PATH', defaultValue: 'C:/xampp/htdocs', description: 'Ruta de XAMPP htdocs')
     }
 
     environment {
@@ -71,11 +71,11 @@ pipeline {
         stage('Deploy to XAMPP') {
             steps {
                 // Limpia el directorio de destino
-                bat "if exist \"${params.XAMPP_PATH}\\laravel-app\" rmdir /S /Q \"${params.XAMPP_PATH}\\laravel-app\""
+                bat "if exist \"${params.APACHE_PATH}\\laravel-app\" rmdir /S /Q \"${params.APACHE_PATH}\\laravel-app\""
                 
                 // Crea el directorio de destino y copia los archivos
-                bat "mkdir \"${params.XAMPP_PATH}\\laravel-app\""
-                bat "xcopy /E /I /Y * \"${params.XAMPP_PATH}\\laravel-app\""
+                bat "mkdir \"${params.APACHE_PATH}\\laravel-app\""
+                bat "xcopy /E /I /Y * \"${params.APACHE_PATH}\\laravel-app\""
             }
         }
     }
