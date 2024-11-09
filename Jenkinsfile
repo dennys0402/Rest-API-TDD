@@ -64,7 +64,7 @@ pipeline {
 
         stage('Run Migrations') {
             steps {
-                bat "${PHP_PATH} artisan migrate --seed --force"
+                bat "${PHP_PATH} artisan migrate --force"
             }
         }
 
