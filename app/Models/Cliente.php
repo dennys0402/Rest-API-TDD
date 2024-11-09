@@ -15,6 +15,7 @@ class Cliente extends Model
         'nombre',
         'ci_nit',
         'email',
+        'domicilio',
     ];
 
     public $timestamps = false; // Desactiva las marcas de tiempo
