@@ -26,7 +26,8 @@ class ClienteController extends Controller
         $validator = Validator::make($request->all(), [
             'nombre' => 'required|string|max:255',
             'ci_nit' => 'required|digits_between:1,20',
-            'email' => 'required|string|email|max:255|unique:clientes'
+            'email' => 'required|string|email|max:255|unique:clientes',
+            'domicilio' => 'required|string|max:255',
         ]);
 
         if ($validator->fails()) {
